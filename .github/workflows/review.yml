@@ -11,6 +11,7 @@ jobs:
 
       - name: Hello world action step
         uses: ./.github/actions/review
+        id: "review"
         with:
           who-to-greet: "Mona the Octocat"
       - name: Get the output time
