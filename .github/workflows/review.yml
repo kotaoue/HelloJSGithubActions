@@ -1,5 +1,7 @@
 name: "Add Reviewer"
-on: [push]
+on:
+  pull_request_target:
+    types: [opened, edited, ready_for_review, converted_to_draft]
 
 jobs:
   hello_world_job:
@@ -14,5 +16,6 @@ jobs:
         uses: ./.github/actions/review
         with:
           who-to-greet: "Mona the Octocat"
+
       - name: Get the output time
         run: echo "The time was ${{ steps.review.outputs.time }}"
