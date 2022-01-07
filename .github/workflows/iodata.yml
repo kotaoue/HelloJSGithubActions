@@ -9,9 +9,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - id: review
+      - id: iodata
         uses: ./.github/actions/iodate
         with:
           user-id: ${{ github.event.pull_request.user.id }}
 
-      - run: echo "user_id ${{ steps.review.outputs.target-user-id }}"
+      - run: echo "user_id ${{ steps.iodata.outputs.target-user-id }}"
