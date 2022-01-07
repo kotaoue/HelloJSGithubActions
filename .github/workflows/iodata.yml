@@ -1,0 +1,17 @@
+name: "IO Data"
+on:
+  pull_request:
+    types: [opened, edited, ready_for_review, converted_to_draft]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - id: review
+        uses: ./.github/actions/iodate
+        with:
+          user-id: ${{ github.event.pull_request.user.id }}
+
+      - run: echo "user_id ${{ steps.review.outputs.target-user-id }}"
