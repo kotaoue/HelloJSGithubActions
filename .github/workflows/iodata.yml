@@ -4,14 +4,14 @@ on:
     types: [opened, edited, ready_for_review, converted_to_draft]
 
 jobs:
-  hello_world_job:
+  io_job:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
-      - id: iodata
+      - id: io
         uses: ./.github/actions/iodate
         with:
           user-id: ${{ github.event.pull_request.user.id }}
 
-      - run: echo "user_id ${{ steps.iodata.outputs.target-user-id }}"
+      - run: echo "user_id ${{ steps.io.outputs.target-user-id }}"
