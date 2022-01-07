@@ -1,4 +1,4 @@
-name: "Add Reviewer"
+name: "IO Data"
 on:
   pull_request:
     types: [opened, edited, ready_for_review, converted_to_draft]
@@ -6,12 +6,11 @@ on:
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: io Data
     steps:
       - uses: actions/checkout@v2
 
       - id: review
-        uses: ./.github/actions/review
+        uses: ./.github/actions/iodate
         with:
           user-id: ${{ github.event.pull_request.user.id }}
 
