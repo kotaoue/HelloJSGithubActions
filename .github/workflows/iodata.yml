@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - id: io
-        uses: ./.github/actions/iodate
+        uses: ./.github/actions/action-a
         with:
           user-id: ${{ github.event.pull_request.user.id }}
 
