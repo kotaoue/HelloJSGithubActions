@@ -1,0 +1,13 @@
+name: "Hello World"
+description: "Greet someone and record the time"
+inputs:
+  user-id:
+    description: "input UserID"
+    required: true
+    default: ""
+outputs:
+  target-user-id:
+    description: "output UserID"
+runs:
+  using: "node16"
+  main: "index.js"
