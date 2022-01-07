@@ -8,14 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     name: io Data
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-      - name: review step
-        id: review
+      - id: review
         uses: ./.github/actions/review
         with:
           user-id: ${{ github.event.pull_request.user.id }}
 
-      - name: Get the output time
-        run: echo "user_id ${{ steps.review.outputs.target-user-id }}"
+      - run: echo "user_id ${{ steps.review.outputs.target-user-id }}"
